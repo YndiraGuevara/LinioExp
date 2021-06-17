@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <!-- Usaremos utf-8 como formato de codificación -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Título de nuestra página -->
+    <title>Linio Expres - Compras por internet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+    <body>
+      <section class="section">
+        <div class="container">
+          <h1 > <center><img src="https://blog.linio.com.pe/wp-content/uploads/2019/05/Linio-Logo-Oficial.png" width="250" height="200"/></center></h1>
+          &nbsp
+          <form action="{% url 'product-list' %}" method="get">
+          <div class="field has-addons">
+
+              <p class="control">
+                <span class="select is-rounded">
+                  <select name="categoria" id="categoria">
+                    <option value="abc">Todo</option>
+                    {% for cat in categorías %}
+                      <option value="{{cat.pk}}"> {{cat.nombre}} </option>
+                    {% endfor %}
+                  </select>
+                </span>
+              </p>
+              <p class="control">
+                <span class="select is-rounded">
+                  <select name="filtro" id="filtro">
+                    <option value="1">Precio menor a mayor</option>
+                    <option value="2">Precio mayor a menor</option>
+                  </select>
+                </span>
+              </p>
+              <p class="control is-expanded">
+                <input class="input is-rounded" type="text"  name=q placeholder="Busca tu producto...">
+              </p>
+
+          </div>
+             </form>
+                &nbsp
+          {% block content %}
+
+          {% endblock %}
+        </div>
+      </section>
+      </body>
+</html>
