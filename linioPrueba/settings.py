@@ -26,7 +26,7 @@ SECRET_KEY = '_0ty$^7yxi0i*s-4o6lfb_t=o$5wjk&5r^^o_ef_hrbd!u&3_m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','linioexp1fin.herokuapp.com']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -57,10 +58,7 @@ ROOT_URLCONF = 'linioPrueba.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-                os.path.join(BASE_DIR, 'templates'),
-                os.path.join(BASE_DIR, 'Proyecto', 'templates', 'main'),
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'main/Templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,8 +133,7 @@ MEDIA_URL = '/media/'
 
 #Django Storages
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = 'rpfeskpwHgMAAAAAAAAAAXTscKvQBs-vAnLsMFoo_AkE-nqgInC0o1YUM0jTW7dM'
-DROPBOX_ROOT_PATH = '/'
+DROPBOX_OAUTH2_TOKEN = 'sl.Ay6r92lgKXEIEf3Xd_bFR02Mk9LCHevbf2-F1DWGc3AYAg_M-qAeDT8gKMuaVmOEZPKaF3kxESlgnbrAGs5lghGPzrlnUup4FHgzwLOg2rZK1Phb5K5ob7VZk87f0z32jCBytgU'
 
 try:
     import django_heroku
