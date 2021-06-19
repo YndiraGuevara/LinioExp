@@ -131,6 +131,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGOUT_REDIRECT_URL = '/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '58bbc1139519ca'
 EMAIL_HOST_PASSWORD = 'ace2a13ed6f954'
