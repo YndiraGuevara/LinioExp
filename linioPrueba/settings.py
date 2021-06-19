@@ -91,7 +91,6 @@ DATABASES = {
     )
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -142,10 +141,11 @@ MEDIA_URL = '/media/'
 
 #Django Storages
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = 'sl.Ay6r92lgKXEIEf3Xd_bFR02Mk9LCHevbf2-F1DWGc3AYAg_M-qAeDT8gKMuaVmOEZPKaF3kxESlgnbrAGs5lghGPzrlnUup4FHgzwLOg2rZK1Phb5K5ob7VZk87f0z32jCBytgU'
+DROPBOX_OAUTH2_TOKEN = 'qE8z8u87GcgAAAAAAAAAActXQZBw0-q0FflQPIYp9AhYkKeunM9mILh3vPYFo_KG'
 
 try:
     import django_heroku
     django_heroku.settings(locals())
+
 except Exception:
     pass
