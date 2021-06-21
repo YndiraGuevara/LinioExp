@@ -14,7 +14,7 @@
       <li><strong>Precio:</strong> {{ object.precio }}</li>
       <li><strong>Descripcion:</strong> {{ object.descripcion }}</li>
       <li><strong>Categoria:</strong> {{ object.categoria.nombre }}</li>
-      <li><strong>Proveedor:</strong> {{ object.proveedor }}</li>
+      <li><strong>Proveedor:</strong> {{ object.comerciante.razon_social }}</li>
     </ul>
     <div class="columns">
     {% for image in object.images.all %}
