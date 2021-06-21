@@ -1,15 +1,21 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title> LinioExp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   </head>
-
-  <body style="background-color:#FFFDE7;" >
-
-    <h1 > Tu productazo </h1>
+  <body style="background:#8cefeb">
+          <h1 > <center><img src="https://blog.linio.com.pe/wp-content/uploads/2019/05/Linio-Logo-Oficial.png" width="250" height="200"/></center></h1>
     <hr>
+    <h3 style="text-align:center ;font-family: 'Stabillo Medium'; font-size:200%;"> {{ object.nombre }} </h3>
+    <ul style="font-family: 'Gill Sans MT'; text-align: justify; margin-left: 30px;margin-right: 30px">
+      <li><strong>Precio:</strong> {{ object.precio }}</li>
+      <li><strong>Descripcion:</strong> {{ object.descripcion }}</li>
+      <li><strong>Categoria:</strong> {{ object.categoria.nombre }}</li>
+      <li><strong>Proveedor:</strong> {{ object.proveedor }}</li>
+    </ul>
     <div class="columns">
     {% for image in object.images.all %}
     <div class="column is-3">
@@ -21,19 +27,11 @@
     </div>
     {% empty %}
     <div class="column content">
-        <p>Aún no hay imágenes disponibles</p>
+        <p style="font-family: 'Gill Sans MT';margin-left: 30px" ><strong>Aún no hay imágenes disponibles</strong></p>
     </div>
     {% endfor %}
-   </div>
-    <h3 style="border:2px solid Violet;font-family:'Caviar Dreams';"> {{ object.nombre }} </h3>
-    <ul>
-      <li><strong>Precio:</strong> {{ object.precio }}</li>
-      <li><strong>Descripcion:</strong> {{ object.descripcion }}</li>
-      <li><strong>Categoria:</strong> {{ object.categoria.nombre }}</li>
-      <li><strong>Comerciante:</strong> {{ object.comerciante.razon_social }}</li>
-
-    </ul>
-    <div class="block">
+    </div>
+    <div class="block" style="margin-left: 30px">
     <a href="{% url 'add-to-cart' product_pk=object.pk %}" class='button is-primary'>
       Añadir al carrito
     </a>
@@ -41,13 +39,10 @@
       Ver carrito
     </a>
     </div>
-
     <hr>
-    <ul>
-      <li><a href="{% url 'product-list' %}">Ver Lista de Productos</a></li>
-      <li><a href="{% url 'home' %}">Inicio</a></li>
+    <ul style="margin-left: 30px">
+      <li><a href="{% url 'product-list' %}" class="button is-primary">Ver Lista de Productos</a></li></br>
+      <li><a href="{% url 'home' %}" class="button is-primary">Inicio</a></li>
     </ul>
-
   </body>
 </html>
-{% endblock %}

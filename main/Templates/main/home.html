@@ -1,19 +1,6 @@
-
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-    <h3> <strong> Hola {{ user.get_username }} </strong> </h3>
-    <p>
-      <a href="{% url 'logout' %}">Cierra Sesion</a>
-        </p>
-    {% else %}
-    <h3>Hola</h3>
-    <p>
-      <a href="{% url 'login' %}">Inicia Sesion</a> o
-      <a href="{% url 'register' %}">Registrate</a>
-    </p>
-    {% endif %}
 
     <hr>
     {% if messages %}
@@ -25,8 +12,10 @@
         {% endfor %}
     {% endif %}
     <h5><strong> Últimos productos</strong> </h5>
-<div class="columns is-multiline">
+
+        <div class="columns is-multiline">
     {% for producto in latest_products %}
+
         <div class="column is-one-quarter">
                     <div class="card">
                         <div class="card-image">
@@ -51,9 +40,47 @@
                 </div>
             {% endfor %}
         </div>
-    </ul>
+
+    <div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFZ4GZNuOpaFw2WyXmCu2206frILNchUGw8IicdvuFDqvwttGqBXtZBt7Z2DgHZO8eoN0&usqp=CAU" alt="Image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>Luisa Campos</strong> <small>@lucampos</small> <small>31m</small>
+          <br>
+          Lo recomiendo muchisimo, todas las compras son a tiempo y con garantía. No te arrepentiras.¡100/100!
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item" aria-label="reply">
+            <span class="icon is-small">
+              <i class="fas fa-reply" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="level-item" aria-label="retweet">
+            <span class="icon is-small">
+              <i class="fas fa-retweet" aria-hidden="true"></i>
+            </span>
+          </a>
+          <a class="level-item" aria-label="like">
+            <span class="icon is-small">
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>
+
     <hr>
     <ul>
-      <li><a href="{% url 'product-list' %}">Ver Lista de Productos Completa</a></li>
+      <li><a class="button is-info" href="{% url 'product-list' %}">Ver Lista de Productos Completa</a></li>
     </ul>
 {% endblock %}

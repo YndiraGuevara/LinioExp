@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<form method="post">
+<style>
+                body {
+                    background-image: url(https://bufetejuridicogiron.com/wp-content/uploads/2018/07/7243-01-low-poly-background-16x9-1.jpg);
+                    background-position: center center;
+                    background-repeat: repeat;
+                    background-attachment: fixed;
+                    background-size: cover;
+                    background-color: #8EB8F1;
+                }
+                @media only screen and (max-width: 1044px) {
+        body {
+        background-image: url(https://bufetejuridicogiron.com/wp-content/uploads/2018/07/7243-01-low-poly-background-16x9-1.jpg);
+        }
+        }
+</style>
+<form method="post" style="font-family: 'Bearskin DEMO';font-size: x-large"  >
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Registrate">
+    <input class="button is-link" type="submit" value="Registrate" style="; font-family: 'Zilla Slab Medium'">
 </form>
 
 {% endblock %}

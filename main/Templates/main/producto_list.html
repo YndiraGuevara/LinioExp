@@ -1,43 +1,46 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title> LinioExp </title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   </head>
-  <body>
-    <h1 style="background-color:White;font-family:'Caviar Dreams';"> Tu tienda favorita Linioexp </h1>
+  <body style="background:#8cefeb">
+    <style>
+            body {background-color: #8cefeb;}
+    </style>
+    <h1> LinioExp </h1>
     <hr>
-    <h3> Productos </h3>
-    <div class="columns is-multiline">
-    {% for producto in object_list %}
-        <div class="column is-4">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="{{ producto.images.first.image.url|default:'https://via.placeholder.com/128' }}" alt="Imagen no disponible">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <h6>
-                        <a href="{% url 'product-detail' producto.pk %}">
-                            {{ producto.nombre }}
-                        </a>
-                    </h6>
-                    <p>$ {{ producto.precio }}</p>
+    <h3 style="text-align:center ;font-family: 'Stabillo Medium'; font-size:300%;"> Lista de productos </h3>
+    <div class="columns is-multiline" style="margin-left: 30px;margin-right: 30px">
+        {% for producto in object_list %}
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="{{ producto.images.first.image.url|default:'https://via.placeholder.com/128' }}" alt="Imagen no disponible">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <h6>
+                            <a href="{% url 'product-detail' producto.pk %}">
+                                {{ producto.nombre }}
+                            </a>
+                        </h6>
+                        <p>$ {{ producto.precio }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% empty %}
-        <div class="content">
-            <h6>Aun no hay productos disponibles.</h6>
-        </div>
-    {% endfor %}
-</div>
+
+        {% empty %}
+            <div class="content">
+                <h6>Aun no hay productos disponibles.</h6>
+            </div>
+        {% endfor %}
+    </div>
     <hr>
     <ul>
-      <li> <a href="{% url 'home' %}">Inicio</a> </li>
+      <li> <a href="{% url 'home' %}" class="button" style="margin-left: 30px">Inicio</a> </li></br>
     </ul>
   </body>
 </html>
-{% endblock %}

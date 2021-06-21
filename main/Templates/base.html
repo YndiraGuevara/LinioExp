@@ -10,30 +10,106 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
     <body>
+        <style>
+                body {
+                    background-image: url(https://cdn-bkaia.nitrocdn.com/BFTxzGCeSiHeYakoWkKipwTAkydShuyH/assets/static/optimized/wp-content/uploads/2020/11/1bccffbacef52753b7f9444d71a9e7bf.YE.png);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-size: cover;
+                    background-color: #8EB8F1;
+                }
+                @media only screen and (max-width: 799px) {
+        body {
+        background-image: url(https://cdn-bkaia.nitrocdn.com/BFTxzGCeSiHeYakoWkKipwTAkydShuyH/assets/static/optimized/wp-content/uploads/2020/11/1bccffbacef52753b7f9444d71a9e7bf.YE.png);
+        }
+        }
+        </style>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+
+        <div class="navbar-brand">
+
+        <a role="button" class="navbar-burger" aria-label="menu" data-target="navbar-menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    <div id="navbar-menu" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{% url 'home' %}">
+                Home
+            </a>
+            <a class="navbar-item" href="{% url 'product-list' %}">
+                Productos
+            </a>
+
+        </div>
+
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttoms">
+            {% if user.is_authenticated %}
+                <a style="font-family: 'Bakso Sapi';font-size: x-large;color: azure"><strong>Hola {{ user.get_username }} </strong> </a>
+                <a class="button is-danger" href="{% url 'logout' %}">Cierra Sesion</a>
+            {% else %}
+                <a style="font-family: 'Bakso Sapi';font-size: x-large;color: azure">Hola</a>
+                <a class="button is-link"  href="{% url 'login' %}"><strong>Inicia Sesion</strong></a>
+              <a class="button is-warner" href="{% url 'register' %}"><strong>Registrate</strong></a>
+            {% endif %}
+
+                </div>
+            </div>
+
+
+        </div>
+
+        </div>
+        </div>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+    </script>
+
       <section class="section">
         <div class="container">
-          <h1 > <center><img src="https://blog.linio.com.pe/wp-content/uploads/2019/05/Linio-Logo-Oficial.png" width="250" height="200"/></center></h1>
+          <h1 > <center><img src="https://1.bp.blogspot.com/-tvkzWOLyS-Y/YNAXF1JMm3I/AAAAAAAAAK0/MmkW7xhijlg7MrjaeBIjeYKV0yQ2UFmnwCLcBGAsYHQ/s320/Logo%2BSin%2Bfondo.png" width="250" height="200"/></center></h1>
           &nbsp
           <form action="{% url 'product-list' %}" method="get">
           <div class="field has-addons">
 
               <p class="control">
                 <span class="select is-rounded">
-                  <select name="categoria" id="categoria">
-                    <option value="abc">Todo</option>
-                    {% for cat in categorías %}
-                      <option value="{{cat.pk}}"> {{cat.nombre}} </option>
-                    {% endfor %}
-                  </select>
+
                 </span>
               </p>
               <p class="control">
-                <span class="select is-rounded">
-                  <select name="filtro" id="filtro">
-                    <option value="1">Precio menor a mayor</option>
-                    <option value="2">Precio mayor a menor</option>
-                  </select>
-                </span>
+
               </p>
               <p class="control is-expanded">
                 <input class="input is-rounded" type="text"  name=q placeholder="Busca tu producto...">

@@ -1,17 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<style>
+                body {
+                    background-image: url(https://bufetejuridicogiron.com/wp-content/uploads/2018/07/7243-01-low-poly-background-16x9-1.jpg);
+                    background-position: center center;
+                    background-repeat: repeat;
+                    background-attachment: fixed;
+                    background-size: cover;
+                    background-color: #8EB8F1;
+                }
+                @media only screen and (max-width: 1044px) {
+        body {
+        background-image: url(https://bufetejuridicogiron.com/wp-content/uploads/2018/07/7243-01-low-poly-background-16x9-1.jpg);
+        }
+        }
+</style>
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
-<table>
+<table style="font-family: 'Bearskin DEMO';font-size: x-large">
 <tr>
     <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
+    <td>
+        {{ form.username }}
+
+    </td>
 </tr>
 <tr>
     <td>{{ form.password.label_tag }}</td>
@@ -19,11 +36,12 @@
 </tr>
 </table>
 
-<input type="submit" value="login">
+<input class="button" type="submit" value="Login">
 <input type="hidden" name="next" value="{% url 'home'%}">
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+<p><a href="{% url 'password_reset' %}" class="button is-primary">Lost password?</a></p>
 
 {% endblock %}
