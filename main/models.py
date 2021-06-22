@@ -106,7 +106,7 @@ class Pedido(models.Model):
         (FACTURA, 'Factura'),
     ]
     tipo_comprobante = models.CharField(max_length=7, choices=TIPO_CHOICES)
-    RUC_Factura = models.CharField(max_length=11,default="-", null=True)
+    RUC_Factura = models.CharField(default="-", null=True)
     def __str__(self):
         return f'{self.cliente} - {self.fecha_creacion} - {self.estado}'
 
