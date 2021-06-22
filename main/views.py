@@ -189,7 +189,7 @@ class PedidoDetailView(DetailView):
         return context
 class PedidoUpdateView(UpdateView):
     model = Pedido
-    fields = ['ubicacion', 'direccion_entrega']
+    fields = ['ubicacion', 'direccion_entrega','tipo_comprobante','RUC_Factura']
     success_url = reverse_lazy('payment')
 
     def form_valid(self, form):
