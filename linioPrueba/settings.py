@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'linioPrueba.wsgi.application'
 #     }
 #}
 
-import dj_database_url
-from decouple import config
+#import dj_database_url
+#from decouple import config
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
@@ -131,6 +131,7 @@ STATIC_URL = '/static/'
 LOGOUT_REDIRECT_URL = '/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'face6f9972912d'
 EMAIL_HOST_PASSWORD = '281de45503f3e4'
