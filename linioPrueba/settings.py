@@ -131,10 +131,9 @@ STATIC_URL = '/static/'
 LOGOUT_REDIRECT_URL = '/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '58bbc1139519ca'
-EMAIL_HOST_PASSWORD = 'ace2a13ed6f954'
+EMAIL_HOST_USER = 'cda3a0cb96f836'
+EMAIL_HOST_PASSWORD = 'c0c0d89645b0de'
 EMAIL_PORT = '2525'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
